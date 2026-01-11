@@ -1,6 +1,6 @@
 {
   "name": "multipart-form-body-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight, zero-dependency multipart/form-data (MIME type) parser that works in both client and server-side environments (Browser and Node.js)",
   "keywords": [
     "javascript",
