@@ -52,7 +52,7 @@ const testData = new TextEncoder().encode([
 ].join('\r\n'));
 
 // Basic parsing
-let parsedData = parseMultipartFormData<ParseResult>(testData, '----WebKitFormBoundary');
+let parsedData = parseMultipartFormData(testData, '----WebKitFormBoundary');
 // the value of parsedData is:
 // {
 //   "username":[{"contentType":"text/plain","data":"john_doe"},{"contentType":"text/plain","data":"hello world"}],
@@ -62,7 +62,7 @@ let parsedData = parseMultipartFormData<ParseResult>(testData, '----WebKitFormBo
 
 
 // Parsing with custom content processors
-parsedData = parseMultipartFormData<ParseResult>(testData, '----WebKitFormBoundary', {
+parsedData = parseMultipartFormData(testData, '----WebKitFormBoundary', {
     'text/plain': content => new TextDecoder().decode(content).toUpperCase(),
     'application/octet-stream': content => new TextDecoder().decode(content),
     'default':  content => new TextDecoder().decode(content)
@@ -167,7 +167,7 @@ const testData = new TextEncoder().encode([
     '------WebKitFormBoundary--'
 ].join('\r\n'));
 
-parseMultipartFormData<ParseResult>(testData, '----WebKitFormBoundary');
+parseMultipartFormData(testData, '----WebKitFormBoundary');
 // the returned value is:
 // {
 //   "username":[{"contentType":"text/plain","data":"JOHN_DOE"},{"contentType":"text/plain","data":"HELLO WORLD"}],

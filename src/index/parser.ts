@@ -157,7 +157,7 @@ function readContentDisposition(params: Uint8Array) {
  *    '------WebKitFormBoundary--'
  *].join('\r\n'));
  *
- * let parsedData = parseMultipartFormData<ParseResult>(testData, '----WebKitFormBoundary');
+ * let parsedData = parseMultipartFormData(testData, '----WebKitFormBoundary');
  * // the value of parsedData is:
  * // {
  * //   "username":[{"contentType":"text/plain","data":"john_doe"},{"contentType":"text/plain","data":"hello world"}],
@@ -167,7 +167,7 @@ function readContentDisposition(params: Uint8Array) {
  *
  *
  * // With content processors
- * parsedData = parseMultipartFormData<ParseResult>(testData, '----WebKitFormBoundary', {
+ * parsedData = parseMultipartFormData(testData, '----WebKitFormBoundary', {
  *   'text/plain': content => new TextDecoder().decode(content).toUpperCase(),
  *   'application/octet-stream': content => new TextDecoder().decode(content),
  *   'default':  content => new TextDecoder().decode(content)
