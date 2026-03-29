@@ -45,6 +45,7 @@
     "start": "rollup -c -w",
     "test": "jest"
   },
+  "sideEffects": false,
   "devDependencies": {
     "@types/jest": "^26.0.7",
     "jest": "^26.1.0",
